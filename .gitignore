@@ -1,0 +1,178 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written to a specific path, but
+#  having this ignore rule is a good practice.
+#  https://github.com/pyinstaller/pyinstaller/issues/1892
+#  https://stackoverflow.com/q/1414709/58623
+__pyinstaller/
+.venv/
+env/
+ENV/
+env3/
+env_win/
+*.venv/
+envs/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environments
+.env
+.venv/
+.envrc
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# Visual Studio Code
+
+# User-specific settings
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+
+# Workspace-specific settings
+.vscode/sftp.json
+.vscode/bookmarks.json
+.vscode/extensions.json
+
+# VSCode workspace state
+.vscode/.state/
+
+# VSCode workspace settings
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+
+# VSCode project-wide settings
+.vscode/*.code-workspace
+
+# VSCode project-wide tasks
+.vscode/tasks.json
+
+# VSCode project-wide launch configuration
+.vscode/launch.json
+
+# VSCode project-wide extensions list
+.vscode/extensions.json
+
+# VSCode project-wide settings.json
+.vscode/settings.json
+
+# VSCode project-wide keybindings.json
+.vscode/keybindings.json
+
+# VSCode project-wide snippets
+.vscode/snippets/
+
+# VSCode project-wide extensions directory
+.vscode/extensions/
+
+# VSCode project-wide workspace settings
+.vscode/workspace.json
+
+# VSCode project-wide code style settings
+.vscode/settings.json
+
+# VSCode project-wide code style settings (old)
+.vscode/.vscodeignore
+
+# VSCode project-wide code style settings (old)
+.vscode/launch.json
+
+# VSCode project-wide code style settings (old)
+.vscode/settings.json
+
+# VSCode project-wide code style settings (old)
+.vscode/tasks.json
+
+# VSCode project-wide code style settings (old)
+.vscode/launch.json
+
+# VSCode project-wide code style settings (old)
+.vscode/snippets/
+
+# VSCode project-wide code style settings (old)
+.vscode/translations/
+
+# VSCode project-wide code style settings (old)
+.vscode/*.code-workspace
+
+# VSCode project-wide code style settings (old)
+.vscode/*.code-workspace
+
+# VSCode project-wide code style settings (old)
+.vscode/*.code-workspace
+
+# VSCode project-wide code style settings (old)
+.vscode/*.code-workspace
+
+# User-specific settings (old)
+.vscode/
+
+# VSCode project-wide settings (old)
+.vscode/
