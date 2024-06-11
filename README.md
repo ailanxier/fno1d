@@ -22,7 +22,7 @@ $$
 u(x, 0)=u_0(x), \quad x \in(0,1)
 $$
 
-其中 $u$ 表示速度场，$u_0$ 表示初始条件，$\nu$ 表示粘度系数。
+其中 $u$ 表示速度场, $u_0$ 表示初始条件, $\nu$ 表示粘度系数。
 
 利用 Fourier Neural Operator 学习初始状态到下一时刻状态的映射，实现一维 Burgers'方程的求解：
 
@@ -42,13 +42,14 @@ Fourier Layer 网络结构如下图所示。图中 V 表示输入向量，上框
 
 ![Fourier Layer网络结构](images/FNO-2.png)
 
-## 训练前准备
+## Quick Start
 
-1. 使用华为云的 [ModerArts](https://console.huaweicloud.com/modelarts/) 平台中的 notebook 开发环境，选择公共镜像中的 mindquantum0.9.0-mindspore2.0.0-cuda11.6-ubuntu20.04 创建 notebook（需要使用 2.0.0 以上版本的 mindspore）。GPU 使用 1*Tnt004 (16GB)，ICPU 为 8 核 32GB。
+1. 使用华为云的 [ModerArts](https://console.huaweicloud.com/modelarts/) 平台中的 notebook 开发环境，选择公共镜像中的 `mindquantum0.9.0-mindspore2.0.0-cuda11.6-ubuntu20.04` 创建 notebook（需要使用 2.0.0 以上版本的 mindspore）。GPU 使用 1*Tnt004 (16GB)，ICPU 为 8 核 32GB。
 
 2. clone 本仓库到 notebook 中，打开终端，使用如下命令更新 mindspore 版本和配置 mindflow 环境。
     
     ```shell
+    # 更新 mindspore 版本，我们使用 2.2.14 版本
     pip install --upgrade mindspore
 
     export DEVICE_NAME=gpu
@@ -85,16 +86,16 @@ python train.py --config_file_path ./configs/fno1d.yaml --device_target GPU --de
 
 | 参数               | Ascend               | GPU                |
 |:----------------------:|:--------------------------:|:---------------:|
-| 硬件资源                | Ascend, 显存32G            | NVIDIA V100, 显存32G    |
-| MindSpore版本           | >=2.1.0                 | >=2.1.0                   |
+| 硬件资源                | Ascend Snt9IARM:24核，显存 96GB           | NVIDIA 004, 显存16G    |
+| MindSpore版本           | >=2.1.0                 | 2.2.14                  |
 | 数据集                  | [一维 Burgers 方程分辨率数据集](https://download-mindspore.osinfra.cn/mindscience/mindflow/dataset/applications/data_driven/burgers/)      | [一维 Burgers 方程分辨率数据集](https://download-mindspore.osinfra.cn/mindscience/mindflow/dataset/applications/data_driven/burgers/)                   |
 | 参数量                  | 5.5e5                   | 5.5e5                   |
-| 训练参数                | resolution=256, modes=16, hidden_channels=64, depth=10, batch_size=64, epoch=1000 | resolution=256, modes=16, hidden_channels=64, depth=10, batch_size=64, epoch=1000 |
+| 训练参数                | resolution=1024, modes=16, hidden_channels=64, depth=4, batch_size=8, epoch=100 | resolution=256, modes=16, hidden_channels=64, depth=10, batch_size=64, epoch=1000 |
 | 测试参数                | batch_size=64          | batch_size=64               |
 | 优化器                  | Adam                 | Adam                   |
-| 训练损失(MSE)           | 0.018363               |  0.011212             |
-| 验证损失(RMSE)          | 0.000503                | 0.000279             |
-| 速度(ms/step)           | 33                   | 17                |
+| 训练损失(MSE)           | 0.018363               |  0.01368600            |
+| 验证损失(RMSE)          | 0.000503                | 0.0037078187             |
+| 速度(ms/step)           | 33                   | 9                |
 
 取不同分辨率下的数据集进行测试，根据以下结果可得出数据集分辨率对训练结果没有影响。
 
@@ -106,3 +107,4 @@ python train.py --config_file_path ./configs/fno1d.yaml --device_target GPU --de
 - [MindSpore 官网](https://www.mindspore.cn/)
 - [MindFlow 官网](https://www.mindspore.cn/mindflow/docs/zh-CN/master/index.html)
 - [全连接网络求解 Burgers 方程](https://gitee.com/mindspore/mindscience/tree/master/MindFlow/applications/physics_driven/burgers)
+- [FNO1D 实现](https://gitee.com/mindspore/mindscience/tree/master/MindFlow/applications/data_driven/burgers/fno1d)
