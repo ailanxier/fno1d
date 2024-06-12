@@ -30,7 +30,7 @@ $$
 u_0 \mapsto u(\cdot, 1)
 $$
 
-### 技术路径
+### 技术路线
 
 Fourier Neural Operator 模型构架如下图所示。图中 $w_0(x)$ 表示初始涡度，通过 Lifting Layer 实现输入向量的高维映射，然后将映射结果作为 Fourier Layer 的输入，进行频域信息的非线性变换，最后由 Decoding Layer 将变换结果映射至最终的预测结果 $w_1(x)$。
 
@@ -47,11 +47,11 @@ Fourier Layer 网络结构如下图所示。图中 V 表示输入向量，上框
 1. 使用华为云的 [ModerArts](https://console.huaweicloud.com/modelarts/) 平台中的 notebook 开发环境，选择公共镜像中的 `mindquantum0.9.0-mindspore2.0.0-cuda11.6-ubuntu20.04` 创建 notebook（需要使用 2.0.0 以上版本的 mindspore）。GPU 使用 1*Tnt004 (16GB)，ICPU 为 8 核 32GB。
 
 2. clone 本仓库到 notebook 中，打开终端，使用如下命令更新 mindspore 版本和配置 mindflow 环境。
-    
+   
     ```shell
     # 更新 mindspore 版本，我们使用 2.2.14 版本
     pip install --upgrade mindspore
-
+   
     export DEVICE_NAME=gpu
     pip install mindflow_${DEVICE_NAME}
     ```
@@ -76,7 +76,7 @@ python train.py --config_file_path ./configs/fno1d.yaml --device_target GPU --de
 
 ### 训练方式二：运行 Jupyter Notebook（推荐）
 
-可以使用[中文版](./FNO1D_CN.ipynb)Jupyter Notebook 逐行运行训练和验证代码。
+可以使用[中文版 Jupyter Notebook ](./FNO1D_CN.ipynb)逐行运行训练和验证代码。
 
 ## 结果展示
 
@@ -84,18 +84,18 @@ python train.py --config_file_path ./configs/fno1d.yaml --device_target GPU --de
 
 ## 性能
 
-| 参数               | Ascend               | GPU                |
-|:----------------------:|:--------------------------:|:---------------:|
-| 硬件资源                | Ascend Snt9IARM:24核，显存 96GB           | NVIDIA 004, 显存16G    |
-| MindSpore版本           | >=2.1.0                 | 2.2.14                  |
-| 数据集                  | [一维 Burgers 方程分辨率数据集](https://download-mindspore.osinfra.cn/mindscience/mindflow/dataset/applications/data_driven/burgers/)      | [一维 Burgers 方程分辨率数据集](https://download-mindspore.osinfra.cn/mindscience/mindflow/dataset/applications/data_driven/burgers/)                   |
-| 参数量                  | 5.5e5                   | 5.5e5                   |
-| 训练参数                | resolution=1024, modes=16, hidden_channels=64, depth=4, batch_size=8, epoch=100 | resolution=256, modes=16, hidden_channels=64, depth=10, batch_size=64, epoch=1000 |
-| 测试参数                | batch_size=64          | batch_size=64               |
-| 优化器                  | Adam                 | Adam                   |
-| 训练损失(MSE)           | 0.018363               |  0.01368600            |
-| 验证损失(RMSE)          | 0.000503                | 0.0037078187             |
-| 速度(ms/step)           | 33                   | 9                |
+|      参数      |                            Ascend                            |                             GPU                              |                             GPU                              |
+| :------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+|    硬件资源    |                       Ascend, 显存 32G                        |                     NVIDIA V100, 显存 32 G                     |                    NVIDIA TNT004, 显存 16G                    |
+| MindSpore 版本  |                           >=2.1.0                            |                           \>=2.1.0                           |                            2.2.14                            |
+|     数据集     | [一维 Burgers 方程分辨率数据集](https://download-mindspore.osinfra.cn/mindscience/mindflow/dataset/applications/data_driven/burgers/) | [一维 Burgers 方程分辨率数据集](https://download-mindspore.osinfra.cn/mindscience/mindflow/dataset/applications/data_driven/burgers/) | [一维 Burgers 方程分辨率数据集](https://download-mindspore.osinfra.cn/mindscience/mindflow/dataset/applications/data_driven/burgers/) |
+|     参数量     |                            5.5e5                             |                            5.5e5                             |                            5.5e5                             |
+|    训练参数    | resolution=256, modes=16, hidden_channels=64, depth=10, batch_size=64, epoch=1000 | resolution=256, modes=16, hidden_channels=64, depth=10, batch_size=64, epoch=1000 | resolution=1024, modes=16, hidden_channels=64, depth=4, batch_size=8, epoch=1000 |
+|    测试参数    |                        batch_size=64                         |                        batch_size=64                         |                        batch_size=64                         |
+|     优化器     |                             Adam                             |                             Adam                             |                             Adam                             |
+| 训练损失(MSE)  |                           0.018363                           |                           0.011212                           |                          0.013686                          |
+| 验证损失(RMSE) |                           0.000503                           |                           0.000279                           |                         0.003707                         |
+| 速度(ms/step)  |                              33                              |                              17                              |                              9                               |
 
 取不同分辨率下的数据集进行测试，根据以下结果可得出数据集分辨率对训练结果没有影响。
 
