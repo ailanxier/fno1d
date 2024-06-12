@@ -82,6 +82,14 @@ def train(input_args):
                                         last_epoch=optimizer_params["epochs"],
                                         steps_per_epoch=steps_per_epoch,
                                         warmup_epochs=1)
+    
+    # print(model.trainable_params())
+    # The graph mode requires the name of the parameter to be unique. See https://www.mindspore.cn/docs/zh-CN/r2.2/faq/network_compilation.html for details. There is a situation where training parameters have duplicate names. The following code is used to modify the name of the parameter to make it unique.
+    for param in model.get_parameters():
+        if param.name == "0.weight" and param.shape == (256, 64):
+            param.name = "1.weight"
+    # print(model.trainable_params())
+    
     optimizer = nn.Adam(model.trainable_params(), learning_rate=Tensor(lr))
 
     if use_ascend:

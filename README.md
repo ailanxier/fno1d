@@ -95,7 +95,7 @@ python train.py --config_file_path ./configs/fno1d.yaml --device_target GPU --de
 |     优化器     |                             Adam                             |                             Adam                             |                             Adam                             |
 | 训练损失(MSE)  |                           0.018363                           |                           0.011212                           |                          0.013686                          |
 | 验证损失(RMSE) |                           0.000503                           |                           0.000279                           |                         0.003707                         |
-| 速度(ms/step)  |                              33                              |                              17                              |                              9                               |
+| 速度(ms/step)  |                              33                              |                              17                              |                              10                               |
 
 取不同分辨率下的数据集进行测试，根据以下结果可得出数据集分辨率对训练结果没有影响。
 
@@ -106,5 +106,5 @@ python train.py --config_file_path ./configs/fno1d.yaml --device_target GPU --de
 - [Fourier Neural Operator for Parametric Partial Differential Equations](https://arxiv.org/abs/2010.08895)
 - [MindSpore 官网](https://www.mindspore.cn/)
 - [MindFlow 官网](https://www.mindspore.cn/mindflow/docs/zh-CN/master/index.html)
-- [全连接网络求解 Burgers 方程](https://gitee.com/mindspore/mindscience/tree/master/MindFlow/applications/physics_driven/burgers)
+- [PINN 方法求解 Burgers 方程](https://gitee.com/mindspore/mindscience/tree/master/MindFlow/applications/physics_driven/burgers)
 - [FNO1D 实现](https://gitee.com/mindspore/mindscience/tree/master/MindFlow/applications/data_driven/burgers/fno1d)

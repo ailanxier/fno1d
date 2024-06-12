@@ -72,9 +72,9 @@ def create_training_dataset(data_params, model_params, shuffle=True, drop_remain
     if is_train:
         train_path = os.path.abspath(os.path.join(data_path, "train"))
         input_path = os.path.join(train_path, "inputs.npy")
-        print_log('input_path: ', np.load(input_path).shape)
+        print_log('input_shape: ', np.load(input_path).shape)
         label_path = os.path.join(train_path, "label.npy")
-        print_log('label_path: ', np.load(label_path).shape)
+        print_log('label_shape: ', np.load(label_path).shape)
     else:
         test_path = os.path.abspath(os.path.join(data_path, "test"))
         input_path = os.path.join(test_path, "inputs.npy")
